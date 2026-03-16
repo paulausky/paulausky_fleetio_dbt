@@ -8,27 +8,27 @@ Steps Taken:
 5. Design cleaned models to support the reporting we would like to build 
 
 Stakeholder questions:
-(1) How many leads were converted by different time grains (day, week, and month)?]
-		-- leads (cleaned, with some additional columns)
-		-- bar chart: bar chart of converted counts by day, week, month
-		-- additional visuals: max converted count day/week/month for comparison, YoY/MoM/WoW comparison
-(2) Which lead sources generated the most converted leads at different time grains (day, week, and month)?
-		-- leads (cleaned, with some additional columns)
-		-- bar chart, stacked bar chart: max converted count day/week/month, YoY, MoM, WoW,
+1. How many leads were converted by different time grains (day, week, and month)?
+		-- leads (cleaned, with some additional columns)\
+		-- bar chart: bar chart of converted counts by day, week, month\
+		-- additional visuals: max converted count day/week/month for comparison, YoY/MoM/WoW comparison\
+2. Which lead sources generated the most converted leads at different time grains (day, week, and month)?
+		-- leads (cleaned, with some additional columns)\
+		-- bar chart, stacked bar chart: max converted count day/week/month, YoY, MoM, WoW\
 
-(3) What are some possible drivers of lead conversion? 
-		-- time between creation of lead and time for creation timestamp of opportunity (avg, median for conv/noncov)
-		-- time between creation of lead and time for closed timestamp or opportunity (avg, median for conv/noncov)
-		-- source (top 5 conv/noncov)
-		-- industry (top 5 conv/noncov)
-		-- fleet size (top 5 conv/noncov)
-		-- job title for our lead (top 5 conv/noncov)
+3. What are some possible drivers of lead conversion? 
+		-- time between creation of lead and time for creation timestamp of opportunity (avg, median for conv/noncov)\
+		-- time between creation of lead and time for closed timestamp or opportunity (avg, median for conv/noncov)\
+		-- source (top 5 conv/noncov)\
+		-- industry (top 5 conv/noncov)\
+		-- fleet size (top 5 conv/noncov)\
+		-- job title for our lead (top 5 conv/noncov)\
 		-- geographic location top 5 conv/noncov) 
-(4) What are some possible drivers of closed/won opportunities?
-		-- need to combine accounts and opportunites 
+4. What are some possible drivers of closed/won opportunities?
+		-- need to combine accounts and opportunites\
 
 Seed Overview:
--- accounts: id, industry, fleet size 
--- contacts: contact info, account id, lead id
--- leads: contact info, conversion time, source (5 distinct), industry, fleet size, job title of contact
--- opportunites: closed/won, geographic locations
+accounts: id, industry, fleet size\
+contacts: contact info, account id, lead id\
+leads: contact info, conversion time, source (5 distinct), industry, fleet size, job title of contact\
+opportunites: closed/won, geographic locations\
