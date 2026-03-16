@@ -1,0 +1,95 @@
+
+version: 2
+
+models:
+  - name: stg_leads_converted
+    description: >
+      Contains all leads with conversion flags and date fields at multiple time grains 
+      for BI reporting. Base for dashboards 1 and 2 (lead conversion volume and lead source breakdown).
+    columns:
+      # --- IDs ---
+      - name: leads_id
+        description: Unique identifier for each lead.
+        tests:
+          - unique
+          - not_null
+      # --- Converted Flag ---
+      - name: lead_converted_flag
+        description: 1 if the lead has been converted to opportunity, 0 if not.
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+      # --- Converted Date Fields ---
+      - name: converted_timestamp
+        description: Raw timestamp when the lead was converted to opportunity. Can be null.
+      - name: lead_convert_date_cont
+        description: Truncated to day. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_convert_week_cont
+        description: Truncated to week. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_convert_month_cont
+        description: Truncated to month. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_convert_date
+        description: Cleaned date of conversion. For use in tooltips in BI Reporting.
+      - name: lead_convert_week
+        description: Cleaned date truncated to week start. For use in tooltips in BI Reporting.
+      - name: lead_convert_month
+        description: Cleaned date truncated to month start. For use in tooltips in BI Reporting.
+      - name: lead_convert_year_week
+        description: ISO year and week number (IYYY-IW format). For use in axis labels in BI Reporting.
+      - name: lead_convert_year_month
+        description: Year and month (YYYY-MM format). For use in axis labels in BI Reporting.
+      - name: lead_convert_year
+        description: Year of conversion extracted as a number.
+      # --- Lead Source ---
+      - name: source
+        description: The source channel that generated the lead (e.g. Organic, Demo Request, Content Form, Spreadsheet Tool, Trial).
+        tests:
+          - not_null
+      # --- Lead Demographics ---
+      - name: first_name
+        description: First name of the lead.
+      - name: last_name
+        description: Last name of the lead.
+      - name: job_title
+        description: Job title of the lead.
+      - name: email
+        description: Email address of the lead.
+      - name: company
+        description: Company name of the lead.
+      - name: city
+        description: City of the lead.
+      - name: state
+        description: State of the lead.
+      - name: country
+        description: Country of the lead.
+      - name: industry
+        description: Industry of the lead's company.
+      - name: fleet_size
+        description: Fleet size of the lead's company (e.g <15, 15-99, 100-499, 500-999, >1000).
+      # --- Created Date Fields ---
+      - name: created_at
+        description: Raw timestamp of when the lead was created.
+        tests:
+          - not_null
+      - name: lead_create_date_cont
+        description: Truncated to day. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_create_week_cont
+        description: Truncated to week. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_create_month_cont
+        description: Truncated to month. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_create_date
+        description: Cleaned date of lead creation. For use in tooltips in BI Reporting.
+      - name: lead_create_week
+        description: Cleaned date truncated to week start. For use in tooltips in BI Reporting.
+      - name: lead_create_month
+        description: Cleaned date truncated to month start. For use in tooltips in BI Reporting.
+      - name: lead_create_year_week
+        description: ISO year and week number (IYYY-IW format). For use in axis labels in BI Reporting.
+      - name: lead_create_year_month
+        description: Year and month (YYYY-MM format). For use in axis labels in BI Reporting.
+      - name: lead_create_year
+        description: Year of lead creation extracted as a number.
+      # --- Time Metrics ---
+      - name: time_to_convert
+        description: Time elapsed between lead creation and conversion.
