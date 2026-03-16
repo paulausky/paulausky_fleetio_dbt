@@ -2,7 +2,7 @@
 
 with leads_base as (
 select * 
-from {{ ref('seed_leads') }}
+from {{ source('all_sources', 'seed_leads') }}
 ),
 
 final as (

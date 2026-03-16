@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: stg_leads_converted
+  - name: stg_leads__converted
     description: >
       Contains all leads with conversion flags and date fields at multiple time grains 
       for BI reporting. Base for dashboards 1 and 2 (lead conversion volume and lead source breakdown).

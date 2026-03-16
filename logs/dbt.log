@@ -3323,3 +3323,221 @@ drop table if exists "fleetio_test"."public"."stg_leads_converted__dbt_backup" c
 [0m16:44:06.169211 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bb522b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b863930>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b8637f0>]}
 [0m16:44:06.169731 [debug] [MainThread]: Flushing usage events
 [0m16:44:06.379244 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:20:20.455418 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bf94590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce5f890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce5f9d0>]}
+
+
+============================== 17:20:20.470739 | 90a7b679-5e7d-458e-9688-11ac23c958ed ==============================
+[0m17:20:20.470739 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:20:20.472975 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'invocation_command': 'dbt run', 'log_path': '/Users/ppaulausky/Documents/paulausky_fleetio_dbt/logs', 'log_format': 'default', 'write_json': 'True', 'quiet': 'False', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/Users/ppaulausky/.dbt', 'log_cache_events': 'False', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'version_check': 'True', 'use_colors': 'True', 'target_path': 'None', 'warn_error': 'None', 'debug': 'False', 'cache_selected_only': 'False', 'partial_parse': 'True', 'empty': 'False', 'no_print': 'None', 'introspect': 'True'}
+[0m17:20:20.913393 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '90a7b679-5e7d-458e-9688-11ac23c958ed', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c1649d0>]}
+[0m17:20:21.039375 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '90a7b679-5e7d-458e-9688-11ac23c958ed', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cee5150>]}
+[0m17:20:21.041847 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m17:20:21.267151 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m17:20:21.574693 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m17:20:21.575302 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m17:20:21.575770 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m17:20:21.664925 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '90a7b679-5e7d-458e-9688-11ac23c958ed', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ceba150>]}
+[0m17:20:21.899048 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ppaulausky/Documents/paulausky_fleetio_dbt/target/manifest.json
+[0m17:20:21.905063 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ppaulausky/Documents/paulausky_fleetio_dbt/target/semantic_manifest.json
+[0m17:20:21.974844 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '90a7b679-5e7d-458e-9688-11ac23c958ed', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d479c70>]}
+[0m17:20:21.976241 [info ] [MainThread]: Found 4 seeds, 1 model, 10 data tests, 1 source, 464 macros
+[0m17:20:21.977047 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '90a7b679-5e7d-458e-9688-11ac23c958ed', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d43f3f0>]}
+[0m17:20:21.986859 [info ] [MainThread]: 
+[0m17:20:21.988281 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m17:20:21.991729 [info ] [MainThread]: 
+[0m17:20:21.996003 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m17:20:22.000277 [debug] [ThreadPool]: Acquiring new postgres connection 'list_fleetio_test'
+[0m17:20:22.180635 [debug] [ThreadPool]: Using postgres connection "list_fleetio_test"
+[0m17:20:22.181285 [debug] [ThreadPool]: On list_fleetio_test: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "paulausky_fleetio_dbt", "target_name": "dev", "connection_name": "list_fleetio_test"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m17:20:22.181718 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:20:22.354167 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.172 seconds
+[0m17:20:22.356118 [debug] [ThreadPool]: On list_fleetio_test: Close
+[0m17:20:22.363289 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_fleetio_test, now list_fleetio_test_public)
+[0m17:20:22.370553 [debug] [ThreadPool]: Using postgres connection "list_fleetio_test_public"
+[0m17:20:22.371139 [debug] [ThreadPool]: On list_fleetio_test_public: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "paulausky_fleetio_dbt", "target_name": "dev", "connection_name": "list_fleetio_test_public"} */
+select
+      'fleetio_test' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'fleetio_test' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'fleetio_test' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m17:20:22.372633 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:20:22.414666 [debug] [ThreadPool]: SQL status: SELECT 11 in 0.042 seconds
+[0m17:20:22.416557 [debug] [ThreadPool]: On list_fleetio_test_public: ROLLBACK
+[0m17:20:22.417257 [debug] [ThreadPool]: On list_fleetio_test_public: Close
+[0m17:20:22.425244 [debug] [MainThread]: Using postgres connection "master"
+[0m17:20:22.425815 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "paulausky_fleetio_dbt", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m17:20:22.426278 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:20:22.460845 [debug] [MainThread]: SQL status: SELECT 1 in 0.034 seconds
+[0m17:20:22.462776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '90a7b679-5e7d-458e-9688-11ac23c958ed', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e22de60>]}
+[0m17:20:22.463330 [debug] [MainThread]: On master: ROLLBACK
+[0m17:20:22.464006 [debug] [MainThread]: On master: COMMIT
+[0m17:20:22.464440 [debug] [MainThread]: Using postgres connection "master"
+[0m17:20:22.464814 [debug] [MainThread]: On master: COMMIT
+[0m17:20:22.465595 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m17:20:22.466068 [debug] [MainThread]: On master: Close
+[0m17:20:22.478688 [debug] [Thread-1 (]: Began running node model.paulausky_fleetio_dbt.stg_leads__converted
+[0m17:20:22.479570 [info ] [Thread-1 (]: 1 of 1 START sql table model public.stg_leads__converted ....................... [RUN]
+[0m17:20:22.480544 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_fleetio_test_public, now model.paulausky_fleetio_dbt.stg_leads__converted)
+[0m17:20:22.481390 [debug] [Thread-1 (]: Began compiling node model.paulausky_fleetio_dbt.stg_leads__converted
+[0m17:20:22.501872 [debug] [Thread-1 (]: Writing injected SQL for node "model.paulausky_fleetio_dbt.stg_leads__converted"
+[0m17:20:22.503383 [debug] [Thread-1 (]: Began executing node model.paulausky_fleetio_dbt.stg_leads__converted
+[0m17:20:22.657259 [debug] [Thread-1 (]: Writing runtime sql for node "model.paulausky_fleetio_dbt.stg_leads__converted"
+[0m17:20:22.658511 [debug] [Thread-1 (]: Using postgres connection "model.paulausky_fleetio_dbt.stg_leads__converted"
+[0m17:20:22.659143 [debug] [Thread-1 (]: On model.paulausky_fleetio_dbt.stg_leads__converted: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "paulausky_fleetio_dbt", "target_name": "dev", "node_id": "model.paulausky_fleetio_dbt.stg_leads__converted"} */
+
+  
+    
+
+  create  table "fleetio_test"."public"."stg_leads__converted__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+with leads_base as (
+select * 
+from "fleetio_test"."public"."seed_leads"
+),
+
+final as (
+select
+	id as leads_id,
+	case when converted_at is not null then 1 else 0 end as lead_converted_flag,
+	converted_at as converted_timestamp,
+	DATE_TRUNC('day', converted_at) as lead_convert_date_cont, -- continuous dates for plotting bar charts
+	DATE_TRUNC('week', converted_at) as lead_convert_week_cont, -- continuous dates for plotting bar charts
+    DATE_TRUNC('month', converted_at) as lead_convert_month_cont, -- continuous dates for plotting bar charts
+    date(converted_at) as lead_convert_date, -- for tool tips
+    date(DATE_TRUNC('week', converted_at)) as lead_convert_week, -- for tool tips
+    date(DATE_TRUNC('month', converted_at)) as lead_convert_month, -- for tool tips
+    TO_CHAR(converted_at, 'IYYY-IW') as lead_convert_year_week, -- for axis labels
+    TO_CHAR(converted_at, 'YYYY-MM') AS lead_convert_year_month, -- for axis labels
+    EXTRACT(year from converted_at) as lead_convert_year,
+	source,
+	first_name,
+	last_name,
+	job_title, 
+	email,
+	company,
+	city,
+	state,
+	country,
+	industry,
+	fleet_size,
+	created_at,
+	DATE_TRUNC('day', created_at) as lead_create_date_cont, -- continuous dates for plotting bar charts
+	DATE_TRUNC('week', created_at) as lead_create_week_cont, -- continuous dates for plotting bar charts
+    DATE_TRUNC('month', created_at) as lead_create_month_cont, -- continuous dates for plotting bar charts
+    date(created_at) as lead_create_date, -- for tool tips
+    date(DATE_TRUNC('week', created_at)) as lead_create_week, -- for tool tips
+    date(DATE_TRUNC('month', created_at)) as lead_create_month, -- for tool tips
+    TO_CHAR(created_at, 'IYYY-IW') as lead_create_year_week, -- for axis labels
+    TO_CHAR(created_at, 'YYYY-MM') AS lead_create_year_month, -- for axis labels
+    EXTRACT(year from created_at) as lead_create_year,
+	converted_at - created_at as time_to_convert
+from leads_base
+)
+
+select *
+from final
+  );
+  
+[0m17:20:22.659723 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:20:22.727660 [debug] [Thread-1 (]: SQL status: SELECT 946 in 0.068 seconds
+[0m17:20:22.740495 [debug] [Thread-1 (]: Using postgres connection "model.paulausky_fleetio_dbt.stg_leads__converted"
+[0m17:20:22.741062 [debug] [Thread-1 (]: On model.paulausky_fleetio_dbt.stg_leads__converted: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "paulausky_fleetio_dbt", "target_name": "dev", "node_id": "model.paulausky_fleetio_dbt.stg_leads__converted"} */
+alter table "fleetio_test"."public"."stg_leads__converted__dbt_tmp" rename to "stg_leads__converted"
+[0m17:20:22.745721 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.004 seconds
+[0m17:20:22.768448 [debug] [Thread-1 (]: On model.paulausky_fleetio_dbt.stg_leads__converted: COMMIT
+[0m17:20:22.769318 [debug] [Thread-1 (]: Using postgres connection "model.paulausky_fleetio_dbt.stg_leads__converted"
+[0m17:20:22.769983 [debug] [Thread-1 (]: On model.paulausky_fleetio_dbt.stg_leads__converted: COMMIT
+[0m17:20:22.772503 [debug] [Thread-1 (]: SQL status: COMMIT in 0.002 seconds
+[0m17:20:22.782170 [debug] [Thread-1 (]: Applying DROP to: "fleetio_test"."public"."stg_leads__converted__dbt_backup"
+[0m17:20:22.789267 [debug] [Thread-1 (]: Using postgres connection "model.paulausky_fleetio_dbt.stg_leads__converted"
+[0m17:20:22.789858 [debug] [Thread-1 (]: On model.paulausky_fleetio_dbt.stg_leads__converted: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "paulausky_fleetio_dbt", "target_name": "dev", "node_id": "model.paulausky_fleetio_dbt.stg_leads__converted"} */
+drop table if exists "fleetio_test"."public"."stg_leads__converted__dbt_backup" cascade
+[0m17:20:22.790818 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.000 seconds
+[0m17:20:22.794317 [debug] [Thread-1 (]: On model.paulausky_fleetio_dbt.stg_leads__converted: Close
+[0m17:20:22.798484 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '90a7b679-5e7d-458e-9688-11ac23c958ed', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e036210>]}
+[0m17:20:22.799649 [info ] [Thread-1 (]: 1 of 1 OK created sql table model public.stg_leads__converted .................. [[32mSELECT 946[0m in 0.31s]
+[0m17:20:22.800653 [debug] [Thread-1 (]: Finished running node model.paulausky_fleetio_dbt.stg_leads__converted
+[0m17:20:22.802793 [debug] [MainThread]: On master: COMMIT
+[0m17:20:22.803287 [debug] [MainThread]: Using postgres connection "master"
+[0m17:20:22.803676 [debug] [MainThread]: On master: COMMIT
+[0m17:20:22.804086 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:20:22.842441 [debug] [MainThread]: SQL status: COMMIT in 0.038 seconds
+[0m17:20:22.843012 [debug] [MainThread]: On master: Close
+[0m17:20:22.843698 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:20:22.844186 [debug] [MainThread]: Connection 'model.paulausky_fleetio_dbt.stg_leads__converted' was properly closed.
+[0m17:20:22.844921 [info ] [MainThread]: 
+[0m17:20:22.846172 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.85 seconds (0.85s).
+[0m17:20:22.849249 [debug] [MainThread]: Command end result
+[0m17:20:22.905137 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ppaulausky/Documents/paulausky_fleetio_dbt/target/manifest.json
+[0m17:20:22.908844 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ppaulausky/Documents/paulausky_fleetio_dbt/target/semantic_manifest.json
+[0m17:20:22.921419 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/ppaulausky/Documents/paulausky_fleetio_dbt/target/run_results.json
+[0m17:20:22.922080 [info ] [MainThread]: 
+[0m17:20:22.922880 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:20:22.923536 [info ] [MainThread]: 
+[0m17:20:22.924701 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m17:20:22.930548 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.6350589, "process_in_blocks": "0", "process_kernel_time": 0.808063, "process_mem_max_rss": "121753600", "process_out_blocks": "0", "process_user_time": 4.060401}
+[0m17:20:22.931755 [debug] [MainThread]: Command `dbt run` succeeded at 17:20:22.931444 after 2.64 seconds
+[0m17:20:22.932783 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dfd3c20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d568870>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d5685f0>]}
+[0m17:20:22.933920 [debug] [MainThread]: Flushing usage events
+[0m17:20:23.187653 [debug] [MainThread]: An error was encountered while trying to flush usage events

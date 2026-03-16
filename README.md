@@ -1,13 +1,13 @@
 ### Patricia Paulausky's test repository for Fleetio Senior Analytics Engineer Job App 
 
-Steps Taken:
+Steps Taken:\
 1. Look through available data to see general quality and whats available 
 2. Review stakeholder questions
 3. Come up with a rough idea of what can be answered/ which tables we could leverage to answer it 
 4. Design a top-down approach where - given the available data - how would we want to visualize answers to these questions? What would make the most sense in terms of streamlining this info for stakeholders? How are stakeholders going to use this information?
 5. Design cleaned models to support the reporting we would like to build 
 
-Stakeholder questions:
+Stakeholder questions:\
 1. How many leads were converted by different time grains (day, week, and month)?
 		-- leads (cleaned, with some additional columns)\
 		-- bar chart: bar chart of converted counts by day, week, month\
@@ -27,7 +27,7 @@ Stakeholder questions:
 4. What are some possible drivers of closed/won opportunities?
 		-- need to combine accounts and opportunites\
 
-Seed Overview:
+Seed Overview:\
 accounts: id, industry, fleet size\
 contacts: contact info, account id, lead id\
 leads: contact info, conversion time, source (5 distinct), industry, fleet size, job title of contact\
