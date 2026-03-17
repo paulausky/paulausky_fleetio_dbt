@@ -4,19 +4,19 @@
 ---
 
 ## Overview
-This repository contains dbt models and supporting documentation built to answer 
+This repo contains dbt models and supporting documentation built to answer 
 a series of stakeholder questions about lead conversion and opportunity performance 
-using Fleetio's sales data.
+using Fleetio's sample sales data.
 
 ---
 
 ## Approach
-The following steps were taken to design and build this project:
+I took the following steps when designing this dbt project:
 
 1. **Reviewed available data** — assessed the quality and structure of the available CSV sources (leads, contacts, accounts, opportunities)
 2. **Reviewed stakeholder questions** — identified what needed to be answered and which data sources were relevant
 3. **Designed reporting outputs first** — took a top-down approach, starting with how stakeholders would consume the information before writing any SQL
-4. **Designed dbt models to support reporting** — built staging and fact models to clean, structure, and join the data in a way that efficiently powers the intended visualizations
+4. **Designed dbt models to support reporting** — built staging and fact models to clean, structure, and join the data in a way that efficiently supports the proposed visualizations
 
 ---
 
