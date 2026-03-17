@@ -1,8 +1,18 @@
-{{ config(materialized='table') }}
+
+  
+    
+
+  create  table "fleetio_test"."public"."stg_fleetio__leads_converted__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
 
 with leads_base as (
 select * 
-from {{ source('all_sources', 'seed_leads') }}
+from "fleetio_test"."public"."seed_leads"
 ),
 
 final as (
@@ -46,4 +56,5 @@ from leads_base
 
 select *
 from final
-
+  );
+  

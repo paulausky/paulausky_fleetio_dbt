@@ -1,0 +1,153 @@
+version: 2
+
+models:
+  - name: fct_funnel_conversion
+    description: >
+      Fact table joining leads, contacts, and opportunities to provide a full view
+      of the lead to opportunity lifecycle. Powers dashboards for lead conversion
+      volume, lead source performance, conversion drivers, and closed/won opportunity drivers.
+    columns:
+      # --- IDs ---
+      - name: lead_id
+        description: Unique identifier for each lead.
+        tests:
+          - unique
+          - not_null
+      - name: contact_id
+        description: Foreign key reference to the associated contact. Null if lead has not converted.
+      - name: account_id
+        description: Foreign key reference to the associated account. Null if lead has not converted.
+      - name: opportunities_id
+        description: Foreign key reference to the associated opportunity. Null if lead has not converted.
+      # --- Lead Conversion ---
+      - name: lead_converted_flag
+        description: 1 if the lead has been converted to opportunity, 0 if not.
+      - name: lead_converted_timestamp
+        description: Raw timestamp of when the lead was converted. Null if not yet converted.
+      # --- Lead Convert Date Fields ---
+      - name: lead_convert_date_cont
+        description: Truncated to day. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_convert_week_cont
+        description: Truncated to week. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_convert_month_cont
+        description: Truncated to month. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_convert_date
+        description: Cleaned date of conversion. For use in tooltips in BI Reporting.
+      - name: lead_convert_week
+        description: Cleaned date truncated to week start. For use in tooltips in BI Reporting.
+      - name: lead_convert_month
+        description: Cleaned date truncated to month start. For use in tooltips in BI Reporting.
+      - name: lead_convert_year_week
+        description: ISO year and week number (IYYY-IW format). For use in axis labels in BI Reporting.
+      - name: lead_convert_year_month
+        description: Year and month (YYYY-MM format). For use in axis labels in BI Reporting.
+      - name: lead_convert_year
+        description: Year of conversion extracted as a number.
+      # --- Lead Source ---
+      - name: lead_source
+        description: The source channel that generated the lead (e.g. Organic, Demo Request, Content Form, Spreadsheet Tool, Trial).
+      # --- Lead Demographics ---
+      - name: first_name
+        description: First name of the lead.
+      - name: last_name
+        description: Last name of the lead.
+      - name: job_title
+        description: Job title of the lead.
+      - name: email
+        description: Email address of the lead.
+      - name: company
+        description: Company name of the lead.
+      - name: city
+        description: City of the lead.
+      - name: state
+        description: State of the lead.
+      - name: country
+        description: Country of the lead.
+      - name: industry
+        description: Industry of the lead's company.
+      - name: fleet_size
+        description: Fleet size range of the lead's company (e.g <15, 15-99, 100-499, 500-999, >1000).
+      - name: fleet_size_sort
+        description: Fleet size sorted in an easy to plot ranking (<15 = 1, 15-99 = 2, 100-499 = 3, 500-999 = 4, >1000 = 5).
+      - name: fleet_size_min
+        description: Fleet size grouped by min of fleet size range category (<15 = 1, 15-99 = 15, 100-499 = 100, 500-999 = 500, >1000 = 1000).
+      # --- Lead Created Date Fields ---
+      - name: lead_created_timestamp
+        description: Raw timestamp of when the lead was created.
+      - name: lead_create_date_cont
+        description: Truncated to day. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_create_week_cont
+        description: Truncated to week. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_create_month_cont
+        description: Truncated to month. Continuous date for plotting bar charts in BI Reporting.
+      - name: lead_create_date
+        description: Cleaned date of lead creation. For use in tooltips in BI Reporting.
+      - name: lead_create_week
+        description: Cleaned date truncated to week start. For use in tooltips in BI Reporting.
+      - name: lead_create_month
+        description: Cleaned date truncated to month start. For use in tooltips in BI Reporting.
+      - name: lead_create_year_week
+        description: ISO year and week number (IYYY-IW format). For use in axis labels in BI Reporting.
+      - name: lead_create_year_month
+        description: Year and month (YYYY-MM format). For use in axis labels in BI Reporting.
+      - name: lead_create_year
+        description: Year of lead creation extracted as a number.
+      # --- Contact Dates ---
+      - name: contact_created_timestamp
+        description: Raw timestamp of when the contact was created. Null if lead has not converted.
+      # --- Opportunity Created Date Fields ---
+      - name: opportunity_created_timestamp
+        description: Raw timestamp of when the opportunity was created. Null if lead has not converted.
+      - name: opportunity_create_date_cont
+        description: Truncated to day. Continuous date for plotting bar charts in BI Reporting.
+      - name: opportunity_create_week_cont
+        description: Truncated to week. Continuous date for plotting bar charts in BI Reporting.
+      - name: opportunity_create_month_cont
+        description: Truncated to month. Continuous date for plotting bar charts in BI Reporting.
+      - name: opportunity_create_date
+        description: Cleaned date of opportunity creation. For use in tooltips in BI Reporting.
+      - name: opportunity_create_week
+        description: Cleaned date truncated to week start. For use in tooltips in BI Reporting.
+      - name: opportunity_create_month
+        description: Cleaned date truncated to month start. For use in tooltips in BI Reporting.
+      - name: opportunity_create_year_week
+        description: ISO year and week number (IYYY-IW format). For use in axis labels in BI Reporting.
+      - name: opportunity_create_year_month
+        description: Year and month (YYYY-MM format). For use in axis labels in BI Reporting.
+      - name: opportunity_create_year
+        description: Year of opportunity creation extracted as a number.
+      # --- Opportunity Closed Date Fields ---
+      - name: opportunity_closed_timestamp
+        description: Raw timestamp of when the opportunity was closed. Null if not yet closed.
+      - name: opportunity_close_date_cont
+        description: Truncated to day. Continuous date for plotting bar charts in BI Reporting. Null if not yet closed.
+      - name: opportunity_close_week_cont
+        description: Truncated to week. Continuous date for plotting bar charts in BI Reporting. Null if not yet closed.
+      - name: opportunity_close_month_cont
+        description: Truncated to month. Continuous date for plotting bar charts in BI Reporting. Null if not yet closed.
+      - name: opportunity_close_date
+        description: Cleaned date of opportunity close. For use in tooltips in BI Reporting. Null if not yet closed.
+      - name: opportunity_close_week
+        description: Cleaned date truncated to week start. For use in tooltips in BI Reporting. Null if not yet closed.
+      - name: opportunity_close_month
+        description: Cleaned date truncated to month start. For use in tooltips in BI Reporting. Null if not yet closed.
+      - name: opportunity_close_year_week
+        description: ISO year and week number (IYYY-IW format). For use in axis labels in BI Reporting. Null if not yet closed.
+      - name: opportunity_close_year_month
+        description: Year and month (YYYY-MM format). For use in axis labels in BI Reporting. Null if not yet closed.
+      - name: opportunity_close_year
+        description: Year of opportunity close extracted as a number. Null if not yet closed.
+      # --- Opportunity Status ---
+      - name: opportunity_closed_flag
+        description: Boolean flag indicating whether the opportunity has been closed.
+      - name: opportunity_won_flag
+        description: Boolean flag indicating whether the opportunity was won.
+      # --- Time Metrics ---
+      - name: time_to_convert_lead
+        description: Time elapsed between lead creation and conversion. Null if not yet converted.
+      - name: time_to_close_opportunity
+        description: Time elapsed between opportunity creation and close. Null if not yet closed.
+      - name: time_to_win_opportunity
+        description: Time elapsed between opportunity creation and close for won opportunities only. Null if lost or not yet closed.
+      - name: time_lead_create_to_close
+        description: Time elapsed between lead creation and opportunity close. Null if opportunity not yet closed.

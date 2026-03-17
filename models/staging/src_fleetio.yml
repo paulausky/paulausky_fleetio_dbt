@@ -1,0 +1,132 @@
+version: 2
+
+sources:
+  - name: fleetio
+    description: Raw data loaded from CSV seed sources.
+    schema: public
+    tables:
+      - name: seed_leads
+        description: Raw leads records created automatically from various sources.
+        columns:
+          - name: id
+            description: Unique identifier for each lead.
+            tests:
+              - unique
+              - not_null
+          - name: first_name
+            description: First name of the lead.
+          - name: last_name
+            description: Last name of the lead.
+          - name: email
+            description: Email address of the lead.
+          - name: company
+            description: Company name of the lead.
+          - name: job_title
+            description: Job title of the lead.
+          - name: city
+            description: City of the lead.
+          - name: state
+            description: State of the lead.
+          - name: country
+            description: Country of the lead.
+          - name: industry
+            description: Industry of the lead's company.
+          - name: fleet_size
+            description: Fleet size of the lead's company. (text data type)
+          - name: source
+            description: The source channel that generated the lead.
+            tests:
+              - not_null
+          - name: created_at
+            description: Timestamp of when the lead was created.
+            tests:
+              - not_null
+          - name: converted_at
+            description: Timestamp of when the lead was converted. Null if not yet converted.
+      
+      - name: seed_accounts
+        description: Account records created after leads have converted to opportunities.
+        columns:
+          - name: id
+            description: Unique identifier for each account.
+            tests:
+              - unique
+              - not_null
+          - name: company
+            description: Company name of the account.
+          - name: primary_contact_id
+            description: Foreign key reference to the primary contact for this account.
+            tests:
+              - relationships:
+                  to: source('fleetio', 'seed_contacts')
+                  field: id
+          - name: city
+            description: City of the account.
+          - name: state
+            description: State of the account.
+          - name: country
+            description: Country of the account.
+          - name: industry
+            description: Industry of the account.
+          - name: fleet_size
+            description: Fleet size of the account. (text data type)
+      
+      - name: seed_opportunities
+        description: Opportunity records created after leads have converted.
+        columns:
+          - name: id
+            description: Unique identifier for each opportunity.
+            tests:
+              - unique
+              - not_null
+          - name: account_id
+            description: Foreign key reference to the associated account.
+            tests:
+              - relationships:
+                  to: source('fleetio', 'seed_accounts')
+                  field: id
+          - name: is_closed
+            description: Boolean flag indicating whether the opportunity has been closed.
+            tests:
+              - accepted_values:
+                  values: [true, false]
+          - name: is_won
+            description: Boolean flag indicating whether the opportunity was won.
+            tests:
+              - accepted_values:
+                  values: [true, false]
+          - name: city
+            description: City associated with the opportunity.
+          - name: state
+            description: State associated with the opportunity.
+          - name: country
+            description: Country associated with the opportunity.
+          - name: created_at
+            description: Timestamp of when the opportunity was created.
+            tests:
+              - not_null
+          - name: closed_at
+            description: Timestamp of when the opportunity was closed. Null if not yet closed.
+
+      - name: seed_contacts
+        description: Contact records created after leads have converted.
+        columns:
+          - name: id
+            description: Unique identifier for each contact.
+            tests:
+              - unique
+              - not_null
+          - name: lead_id
+            description: Foreign key reference to the originating lead.
+          - name: account_id
+            description: Foreign key reference to the associated account.
+          - name: first_name
+            description: First name of the contact.
+          - name: last_name
+            description: Last name of the contact.
+          - name: email
+            description: Email address of the contact.
+          - name: job_title
+            description: Job title of the contact.
+          - name: created_at
+            description: Timestamp of when the contact was created.
